@@ -2,6 +2,8 @@
 <head>
     <meta charset="UTF-8">
     <style href="views/stylecss/styleheader.css" rel="stylesheet" />
+    <style href="css/css/normalize.css" rel="stylesheet" />
+    <style href="css/css/skeleton.css" rel="stylesheet" />
 </head>
 <body>
 
