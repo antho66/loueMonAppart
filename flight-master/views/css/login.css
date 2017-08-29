@@ -1,0 +1,32 @@
+html{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+      display: 	flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #022437;
+      
+
+}
+body{
+    width: 90%;
+    height: 90%;
+    margin: 0;
+    display: 	flex;
+    justify-content: center;
+    align-items: center ;
+    background-image: url("../img/hero.jpg");
+    background-position: bottom;
+    
+}
+
+.inscription{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;    
+    align-items: center;;
+    
+
+}

@@ -1,40 +1,85 @@
 <?php
 class user {
 
-
-   private $email;
-   private $password;
+   private $id;
+   private $nom ;
+   private $prenom; 
    private $username;
+   private $password;
+   private $confirmepassword;
+   private $email;
+   private $naissance;
 
-   public function __construct($donnees = array())
-    {
-      $this->hydrate($donnees);
+   function getId() {
+        return $this->id;
     }
 
-
-   function getEmail() {
-       return $this->email;
+   function getNom() {
+       return $this->nom;
    }
 
-   function getPassword() {
-       return $this->password;
+   function getPrenom() {
+       return $this->prenom;
    }
 
    function getUsername() {
        return $this->username;
    }
 
-   function setEmail($email) {
-       $this->email = $email;
+   function getPassword() {
+       return $this->password;
+   }
+
+   function getConfirmepassword() {
+       return $this->confirmepassword;
+   }
+
+   function getEmail() {
+       return $this->email;
+   }
+
+   function getNaissance() {
+       return $this->naissance;
+   }
+
+   function setId($id) {
+        $this->id = $id;
+    }
+
+   function setNom($nom) {
+       $this->nom = $nom;
+   }
+
+   function setPrenom($prenom) {
+       $this->prenom = $prenom;
+   }
+
+   function setUsername($username) {
+       $this->username = $username;
    }
 
    function setPassword($password) {
        $this->password = $password;
    }
 
-   function setUsername($username) {
-       $this->username = $username;
+   function setConfirmepassword($confirmepassword) {
+       $this->confirmepassword = $confirmepassword;
    }
+
+   function setEmail($email) {
+       $this->email = $email;
+   }
+
+   function setNaissance($naissance) {
+       $this->naissance = $naissance;
+   }
+
+
+   public function __construct($donnees = array())
+    {
+      $this->hydrate($donnees);
+    }
+
 
 
 
@@ -62,7 +107,7 @@ class user {
 
     public function save(BddManager $bddManager){
       //$this tout court sert à passer l'objet lui même
-      $bddManager->getuserRepository()->saveProduit($this);
+      $bddManager->getuserRepository()->inserUser($this);
     }
 
     public function delete(BddManager $bddManager){

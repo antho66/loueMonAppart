@@ -21,6 +21,20 @@
 
     } 
 
+    public function getUserByEmail($email) {
+        
+        $object = $this->connexion->prepare('SELECT * FROM user WHERE email=:email');
+        $object->execute(array(
+            'email'=>$email
+        ));
+        $data = $object->fetch(PDO::FETCH_ASSOC);
+
+        if($data){
+            return new user($data);
+        }
+        else return false;
+    }
+
      
 
       public function getAlluser(){
@@ -42,9 +56,8 @@
     }
          
 
-    public function saveUser (User $User){ 
-        if(empty($User->getId()) == true){  
-            
+    public function saveUser (User $user){ 
+        if(empty($user->getId()) == true){  
             $this->inserUser($user);
         }else{
             $this->updateUser($user);
@@ -53,14 +66,17 @@
 
         
 
-    public function inserUser(User $User){
-        $query = " INSERT INTO user SET username=:username,
-        password=:password  email=:email ";
+    public function inserUser(User $user){
+        $query = "INSERT INTO user SET username=:username,
+        password=:password, email=:email,nom=:nom,prenom=:prenom,naissance=:naissance ";
         $pdo = $this->connexion->prepare($query);
         $pdo -> execute(array(
             'username'=> $user ->getusername(),
             'password'=> $user ->getpassword(),
-            'email'=> $user ->getPrix(),
+            'email'=> $user ->getEmail(),
+            'naissance'=> $user ->getNaissance(),
+            'nom'=> $user ->getNom(),
+            'prenom'=> $user ->getPrenom(),
 
             ));
 
@@ -71,15 +87,18 @@
 
     public function updateuser(user $user){
         $query = "UPDATE user SET username=:username,
-        password=:password  email=:email datecreate=:datecreate 
+        password=:password, email=:email,nom=:nom,prenom=:prenom,
+        naissance=:naissance datecreate=:datecreate 
          WHERE id=:id";
         $pdo = $this->connexion->prepare($query);
         $pdo -> execute(array(
             'id'=> $voiture ->getId(),
-            'marque'=> $voiture->getMarque(),
             'username'=> $user ->getusername(),
             'password'=> $user ->getpassword(),
             'email'=> $user ->getPrix(),
+            'naissance'=> $user ->getNaissance(),
+            'nom'=> $user ->getNom(),
+            'prenom'=> $user ->getPrenom(),
             ));
 
             return $pdo->rowcount();
@@ -88,8 +107,9 @@
 
 
     public function deleteuser(user $user){
-        $query = "DELETE FROM user SET username=:username,
-        password=:password  email=:email datecreate=:datecreate 
+        $query = "DELETE FROM user SET  username=:username,
+        password=:password, email=:email,nom=:nom,prenom=:prenom,
+        naissance=:naissance datecreate=:datecreate 
         couleur=:couleur  WHERE id=:id";
         $pdo = $this->connexion->prepare($query);
         $pdo -> execute(array(
