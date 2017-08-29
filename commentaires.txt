@@ -1,0 +1,9 @@
+/******
+* Alfonso: Anthony!
+* Tu dois encore bosser pour bien comprendre la logique objet.
+* Bon celà dit tout le monde galère. J'admire comment tu t'accroches.
+* Continues comme ça tu progresseras. Essaie par contre d'appliquer stricto senso les consignes
+* Et surtout fait confiance à NETBEANS!! et n'oublies pas les points virgule et essaie de bien formaté
+* les lignes de code!!!!
+*
+* À bientôt j'espère et bon courage!
